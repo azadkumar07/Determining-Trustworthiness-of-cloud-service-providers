@@ -38,7 +38,7 @@ def pre():
 
 
 def index(request):
-	location="/dataset.xlsx"
+	location="location of dataset /major/dataset.xlsx"
 	workbook=xlrd.open_workbook(location)
 	sheet=workbook.sheet_by_index(0)
 	data=[[sheet.cell_value(r,c) for c in range(sheet.ncols)] for r in range(sheet.nrows)]
