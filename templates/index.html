@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>Major Project</title>
+
+    <script href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.12/css/select2.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.12/js/select2.full.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.12/js/select2.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.css">
+     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.js"></script>
+
+    <script>
+        $( document ).ready(function() {
+
+            $("#cloud_provider").select2({});
+        });
+
+        $(document).ready( function () {
+             $('#example').DataTable({});
+              });
+        
+    </script>
+
+</head>
+
+
+<body >
+
+      <style type="text/css">
+   body { background: DarkCyan   !important; } 
+</style>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+   <div class="container " > <div class="container " align="center"><a class="navbar-brand" href="#" align="right">Determining Trustworthiness of Cloud Service Providers</a></div></div>
+  
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+</nav>
+<div class="container mx-5 my-3">
+
+<div class="container">
+        <div class="form-group row">
+            
+        <form action='/company' method='get'>
+            <b><a>Calculate Trustworthiness of parameters</a></b>
+            <div class="my-3">
+            <select id="cloud_provider" name="company">
+                <option value="" selected hidden>-- select Cloud Provider Name --</option>
+                {% for name in cloud_provider %}
+                    <option>{{name}} </option>
+                {% endfor %}
+                
+            </select>
+            </div>
+            <div class="my-3">
+            <button type='submit' class="btn btn-primary ">Calculate</button>
+            </div>
+
+
+        
+        </form>
+
+                <div class="mx-5" >
+                 <div class="mx-5" >
+                <div class="mx-5" >
+                 <div class="mx-5" >
+                        <b><a>Compare Trustworthiness of parameters</a></b>
+                        <div class="my-3">
+                        <button type="button" class="btn btn-primary " onclick="location.href='http://127.0.0.1:8000/all'">Compare
+                        </button>
+                        </div>
+                </div>
+                </div>    
+                </div>
+                </div>  
+
+   
+
+
+
+        </div>
+
+</div>
+<div class="my-3">
+
+    <table id="example" class="display" style="width:100%">
+     <thead>
+        <tr>
+           <th>Name</th>
+           <th>Trustworthiness</th>
+        </tr>
+     </thead>
+     <tbody>
+      
+        {%for k,v in data.items %}
+        <tr>
+            <td>{{k}}</td>
+            <td>{{v}}</td>
+        </tr>
+        {% endfor %}
+
+     </tbody>
+     <tfoot>
+       <tr>
+           <th>Name</th>
+           <th>Trustworthiness</th>
+
+        </tr>
+     </tfoot>
+  </table>
+</div>
+</div>
+
+<script>
+
+
+</script>
+
+
+
+
+
+
+
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+</html>
